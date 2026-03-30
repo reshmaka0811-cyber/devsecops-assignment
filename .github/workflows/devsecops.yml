@@ -52,5 +52,5 @@ jobs:
           python-version: '3.11'
       - name: Install Safety
         run: pip install safety
-      - name: Run Safety check
-        run: safety check -r requirements.txt || true
+      - name: Run Safety scan
+        run: safety scan --file requirements.txt || true
