@@ -42,7 +42,7 @@ jobs:
           path: bandit-report.txt
 
   sca:
-    name: SCA - Safety
+    name: SCA - pip-audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install Safety
-        run: pip install safety
-      - name: Run Safety scan
-        run: safety scan --file requirements.txt || true
+      - name: Install pip-audit
+        run: pip install pip-audit
+      - name: Run pip-audit SCA scan
+        run: pip-audit -r requirements.txt || true
